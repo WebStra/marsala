@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MarketingTranslations extends Model
 {
-    use WithoutTimestamps;
+//    use WithoutTimestamps;
 
     /**
      * @var string
@@ -18,4 +18,6 @@ class MarketingTranslations extends Model
      * @var array
      */
     protected $fillable = ['name'];
+
+    public $timestamps = false;
 }

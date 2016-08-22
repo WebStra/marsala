@@ -15,9 +15,10 @@ Route::bind('unsub_token', function($token) {
 	return (new Subscribe)->where('unsubscribe_token', $token)->first();
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'LandingController@index'
+]);
 
 Route::post('subscribe', [ 
 	'as' => 'subscribe', 

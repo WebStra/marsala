@@ -46,7 +46,11 @@ return [
 //        'icon' => 'fa fa-circle-o',
         'pages' => [
             'strategies' => [
-            'icon' => 'fa fa-file-text-o',
+                'icon' => 'fa fa-file-text-o',
+            ],
+
+            'marketings' => [
+                'icon' => 'fa fa-file-text-o'
             ]
         ]
     ],
