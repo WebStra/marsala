@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="main-container">
-
         <section class="info-top">
             <div class="container-fluid">
                 <div class="row">

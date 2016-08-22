@@ -41,7 +41,7 @@ return [
             ]
         ]
     ],
-    'Sections' => [
+    'Content' => [
         'page_header' => 'main content site',
 //        'icon' => 'fa fa-circle-o',
         'pages' => [
