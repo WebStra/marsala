@@ -11,9 +11,6 @@
 |
 */
 
-use App\Test;
-
 Route::get('/', function () {
-	// dd(Test::all());
-    return view('welcome', ['test' => Test::first()]);
+    return view('welcome');
 });
