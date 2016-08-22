@@ -1824,7 +1824,7 @@ $(document).ready(function () {
         var w_width = $(window).width();
         var newOptions = {};
         if ((w_width > 1366)) {
-            console.log(">1366");
+
             newOptions = {
                 flankingItems: 3,
                 imageNav: false,
@@ -1848,7 +1848,7 @@ $(document).ready(function () {
             }
         }
         if ((w_width > 991) && (w_width < 1367)) {
-            console.log(">991");
+
             newOptions = {
                 flankingItems: 3,
                 imageNav: false,
@@ -1872,7 +1872,7 @@ $(document).ready(function () {
             }
         }
         if ((w_width < 992)) {
-            console.log("width = " + w_width + " <992");
+
             newOptions = {
                 flankingItems: 0,
                 movingToCenter: function ($item) {
@@ -1915,7 +1915,7 @@ $(document).ready(function () {
         clickedCenter: function ($item) {
             $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
         }
-    };
+    }
 
     var carousel = $('#carousel').waterwheelCarousel(options);
 
@@ -1942,8 +1942,8 @@ $(document).ready(function () {
 //----------------------------------------------------------
 //----------------------------------------------------------
 // carousel owl
-    var $owl_companies = $('.carousel-companies');
-    var $owl_projects = $('.carousel-projects');
+    var $owl_companies = $('.monitor .carousel-companies');
+    var $owl_projects = $('.monitor .carousel-projects');
     $owl_companies.owlCarousel({
         margin: 30,
         responsive: {
@@ -1975,7 +1975,7 @@ $(document).ready(function () {
 //----------------------------------------------------------
 //----------------------------------------------------------
 // filters functionality
-    data = {};
+    data = {}
     function rebuildSlider($carousel, filter) {
         var slider = $carousel;
         $(".monitor " + slider).html('');
@@ -2068,8 +2068,8 @@ $(document).ready(function () {
     jQuery('#parallax .parallax-layer')
         .parallax({
                 // mouseport: jQuery('body'),
-                xorigin: 0,
-                yorigin: 0,
+                xorigin: 0.5,
+                yorigin: 0.5,
             }, {
                 xparallax: "150px",
                 yparallax: "180px",

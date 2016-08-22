@@ -45,20 +45,9 @@ return [
         'page_header' => 'main content site',
 //        'icon' => 'fa fa-circle-o',
         'pages' => [
-            'pages' => [
-                'icon' => 'fa fa-file-text-o',
-                
-            ],
-
-    
-            'slide',
-            'test',
+            'strategies' => [
+            'icon' => 'fa fa-file-text-o',
+            ]
         ]
     ],
-
-    'TestRazdel' => [
-        'pages' => [
-            'test'
-        ]
-    ]
 ];
