@@ -4,6 +4,7 @@ namespace App;
 
 use App\Libraries\WithoutTimestamps;
 use Illuminate\Database\Eloquent\Model;
+use Keyhunter\Translatable\Translatable;
 
 class MarketingTranslations extends Model
 {

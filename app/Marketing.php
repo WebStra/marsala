@@ -6,7 +6,7 @@ use App\Libraries\ActivateableTrait;
 use Keyhunter\Administrator\Repository;
 use Keyhunter\Translatable\HasTranslations;
 
-class Marketing extends Repository
+class Marketing extends Repository implements Translatable
 {
     use ActivateableTrait, HasTranslations;
 
