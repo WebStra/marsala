@@ -11,6 +11,20 @@
 |
 */
 
+Route::bind('unsub_token', function($token) {
+	return (new Subscribe)->where('unsubscribe_token', $token)->first();
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('subscribe', [ 
+	'as' => 'subscribe', 
+	'uses' => 'SubscribeController@subscribe'
+]);
+
+Route::get('unsubscribe/{unsub_token}', [ 
+	'as' => 'unsubscribe', 
+	'uses' => 'SubscribeController@unsubscribe'
+]);

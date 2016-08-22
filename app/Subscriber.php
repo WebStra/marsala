@@ -4,16 +4,15 @@ namespace App;
 
 use Keyhunter\Administrator\Repository as Model;
 
-class Slide extends Model
+class Subscriber extends Model
 {
-	protected $table = 'slide';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'active'
+        'id', 'email', 'active', 'unsubscribe_token'
     ];
 }
+
