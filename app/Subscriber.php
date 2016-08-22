@@ -12,6 +12,7 @@ class Subscriber extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'email', 'active'
+        'id', 'email', 'active', 'unsubscribe_token'
     ];
 }
+
