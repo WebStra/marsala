@@ -11,8 +11,13 @@
 |
 */
 
+use App\Subscriber;
+
 Route::bind('unsub_token', function($token) {
-	return (new Subscribe)->where('unsubscribe_token', $token)->first();
+	return (new Subscriber)
+        ->where('unsubscribe_token', $token)
+        ->active()
+        ->first();
 });
 
 Route::get('/', [
