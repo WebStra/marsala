@@ -8,8 +8,8 @@ use Keyhunter\Administrator\Schema\Factory AS Schema;
 use Keyhunter\Administrator\Schema\SchemaInterface;
 
 return [
-    'title'  => 'Tests Pages',
-    'model'  => \App\Test::class,
+    'title'  => 'Strategies',
+    'model'  => \App\Strategy::class,
 
     /*
     |-------------------------------------------------------
@@ -25,13 +25,6 @@ return [
 
         'name',
 
-    	'asd' => [
-    		'output' => function($row){
-    			return 'Hello';
-    			// dd($row);
-    		}
-    	],
-
         'body',
 
         'active' => [
@@ -39,14 +32,6 @@ return [
             'output' => function($row) {
                 return output_boolean($row);
             }
-        ],
-
-        'dates' => [
-            'elements' =>
-            [
-                'created_at',
-                'updated_at'
-            ]
         ]
     ],
 
@@ -122,11 +107,15 @@ return [
         'id'       => ['type' => 'key'],
 
         'name' => [
-            'type'  => 'text'
+            'type'  => 'text',
+            'translatable' => true
         ],
 
+        'icon' =>  form_text(),
+
      	'body' => [
-     		'type' => 'textarea'
+     		'type' => 'ckeditor',
+            'translatable' => true
      	],
 
         'active' => [

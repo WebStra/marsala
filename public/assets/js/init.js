@@ -34,7 +34,7 @@ function reloadCarousel(newoptions=null){
     var w_width = $(window).width();
     var newOptions = {};
     if( (w_width>1366)){
-            console.log(">1366");
+         
             newOptions={
                         flankingItems: 3,
                         imageNav: false,
@@ -58,7 +58,7 @@ function reloadCarousel(newoptions=null){
                       }
     }
     if( (w_width>991) && (w_width<1367)){
-            console.log(">991");
+          
             newOptions={
                         flankingItems: 3,
                         imageNav: false,                        
@@ -82,7 +82,7 @@ function reloadCarousel(newoptions=null){
                       }
     }
     if( (w_width<992)){
-            console.log("width = "+w_width+" <992");
+         
             newOptions={
                         flankingItems: 0,
                         movingToCenter: function ($item) {
@@ -157,8 +157,8 @@ var carousel = $('#carousel').waterwheelCarousel(options);
 //----------------------------------------------------------
 //----------------------------------------------------------
 // carousel owl
-var $owl_companies = $('.carousel-companies');
-var $owl_projects = $('.carousel-projects');
+var $owl_companies = $('.monitor .carousel-companies');
+var $owl_projects = $('.monitor .carousel-projects');
 $owl_companies.owlCarousel({
     margin:30,          
           responsive:{
@@ -285,8 +285,8 @@ $('.list-groups li').first().click();
   jQuery('#parallax .parallax-layer')
     .parallax({
       // mouseport: jQuery('body'),
-      xorigin:    0,
-      yorigin:    0,
+      xorigin:    0.5,
+      yorigin:    0.5,
     },{
     		xparallax: "150px",
       yparallax: "180px",
