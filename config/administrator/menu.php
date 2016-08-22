@@ -45,11 +45,19 @@ return [
         'page_header' => 'main content site',
 //        'icon' => 'fa fa-circle-o',
         'pages' => [
+            'webDesign' => [
+                'icon' => 'fa fa-file-text-o'
+            ],
+
             'strategies' => [
                 'icon' => 'fa fa-file-text-o',
             ],
 
             'marketings' => [
+                'icon' => 'fa fa-file-text-o'
+            ],
+
+             'social' => [
                 'icon' => 'fa fa-file-text-o'
             ]
         ]

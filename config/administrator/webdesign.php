@@ -8,8 +8,8 @@ use Keyhunter\Administrator\Schema\Factory AS Schema;
 use Keyhunter\Administrator\Schema\SchemaInterface;
 
 return [
-    'title'  => 'Strategies',
-    'model'  => \App\Strategy::class,
+    'title'  => 'Web Designs',
+    'model'  => \App\WebDesign::class,
 
     /*
     |-------------------------------------------------------
@@ -23,9 +23,13 @@ return [
     'columns' => [
         'id',
 
-        'name',
+        'image' => [
+            'output' => function($row){
+                return output_image($row, 'image', ['width' => 50, 'height' => 30]);
+            }
+        ],
 
-        'body',
+        'title',
 
         'active' => [
             'visible' => function() {},
@@ -74,7 +78,8 @@ return [
     |-------------------------------------------------------
     */
     'filters' => [
-        'name' => [
+      
+        'title' => [
             'type' => 'text'
         ],
 
@@ -103,20 +108,15 @@ return [
     'edit_fields' => [
         'id'       => ['type' => 'key'],
 
-        'name' => [
-            'type'  => 'text',
-            'translatable' => true
+        'title' => [
+            'type' => 'text'
         ],
 
-        'icon' =>  [
-            'type' => 'image', 
-            'location' => 'upload/strategies'
+        'image' => [
+            'type' => 'image',
+            'location' => 'upload/web_designs'
         ],
 
-     	'body' => [
-     		'type' => 'ckeditor',
-            'translatable' => true
-     	],
 
         'active' => [
             'title' => 'Active',

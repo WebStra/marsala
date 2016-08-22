@@ -15,6 +15,7 @@
         <form action="{{ route('subscribe') }}" method="post" class="form-subscribe">
             <div class="form-group">
                 <input type="email" name="email" required placeholder="Your e-mail">
+                {{csrf_field()}}
                 <button type="submit" class="btn btn-first">Subscribe</button>
             </div>
         </form>

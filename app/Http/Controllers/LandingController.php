@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Strategy;
+use App\Social;
+use App\WebDesign;
+
 class LandingController extends Controller
 {
-    public function __construct()
-    {
+    protected $strategy;
 
+    protected $social;
+
+    protected $webDesign;
+
+    public function __construct(Strategy $strategy, Social $social, WebDesign $webdesign)
+    {
+        $this->strategy = $strategy;
+        $this->social = $social;
+        $this->webdesign = $webdesign;
     }
 
     /**
@@ -16,6 +28,31 @@ class LandingController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('welcome', [
+            'strategies' => $this->getPublicStrategies(),
+            'social' => $this->getPublicSocials(),
+            'webdesign' => $this->getPublicWebDesign()
+
+                    ]);
+    }
+
+    public function getPublicStrategies()
+    {
+        return $this->strategy
+                ->active()
+                ->get();
+    }
+
+     public function getPublicSocials()
+    {
+        return $this->social
+                ->active()
+                ->get();
+    }
+     public function getPublicWebDesign()
+    {
+        return $this->webdesign
+                ->active()
+                ->get();
     }
 }

@@ -370,28 +370,28 @@ section.strategies {
       section.strategies .wrap-elements .item:nth-of-type(1) {
         top: 20px;
         left: -324px; }
-        section.strategies .wrap-elements .item:nth-of-type(1) i {
-          background-image: url("../images/ico/ico-line-graph.png"); }
+        /*section.strategies .wrap-elements .item:nth-of-type(1) i {
+          background-image: url("../images/ico/ico-line-graph.png"); }*/
       section.strategies .wrap-elements .item:nth-of-type(2) {
         top: 105px;
         left: 103%; }
-        section.strategies .wrap-elements .item:nth-of-type(2) i {
-          background-image: url("../images/ico/ico-line-graph.png"); }
+        /*section.strategies .wrap-elements .item:nth-of-type(2) i {
+          background-image: url("../images/ico/ico-line-graph.png"); }*/
       section.strategies .wrap-elements .item:nth-of-type(3) {
         top: 180px;
         left: -240px; }
-        section.strategies .wrap-elements .item:nth-of-type(3) i {
-          background-image: url("../images/ico/ico-employee.png"); }
+        /*section.strategies .wrap-elements .item:nth-of-type(3) i {
+          background-image: url("../images/ico/ico-employee.png"); }*/
       section.strategies .wrap-elements .item:nth-of-type(4) {
         top: 255px;
         left: 89%; }
-        section.strategies .wrap-elements .item:nth-of-type(4) i {
-          background-image: url("../images/ico/ico-command.png"); }
+       /* section.strategies .wrap-elements .item:nth-of-type(4) i {
+          background-image: url("../images/ico/ico-command.png"); }*/
       section.strategies .wrap-elements .item:nth-of-type(5) {
         top: 350px;
         left: -140px; }
-        section.strategies .wrap-elements .item:nth-of-type(5) i {
-          background-image: url("../images/ico/ico-command.png"); }
+       /* section.strategies .wrap-elements .item:nth-of-type(5) i {
+          background-image: url("../images/ico/ico-command.png"); }*/
       section.strategies .wrap-elements .item i {
         position: absolute;
         top: 0;

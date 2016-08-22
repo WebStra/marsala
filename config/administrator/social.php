@@ -8,8 +8,8 @@ use Keyhunter\Administrator\Schema\Factory AS Schema;
 use Keyhunter\Administrator\Schema\SchemaInterface;
 
 return [
-    'title'  => 'Strategies',
-    'model'  => \App\Strategy::class,
+    'title'  => 'Social Link',
+    'model'  => \App\Social::class,
 
     /*
     |-------------------------------------------------------
@@ -23,9 +23,13 @@ return [
     'columns' => [
         'id',
 
-        'name',
+        'icon' => [
+            'output' => function($row){
+                return output_image($row, 'icon', ['width' => 17, 'height' => 14]);
+            }
+        ],
 
-        'body',
+        'link',
 
         'active' => [
             'visible' => function() {},
@@ -74,6 +78,7 @@ return [
     |-------------------------------------------------------
     */
     'filters' => [
+      
         'name' => [
             'type' => 'text'
         ],
@@ -103,20 +108,19 @@ return [
     'edit_fields' => [
         'id'       => ['type' => 'key'],
 
+        'link' => [
+            'type' => 'text'
+        ],
+
         'name' => [
-            'type'  => 'text',
-            'translatable' => true
+            'type' => 'text'
         ],
 
-        'icon' =>  [
-            'type' => 'image', 
-            'location' => 'upload/strategies'
+        'icon' => [
+            'type' => 'image',
+            'location' => 'upload/social'
         ],
 
-     	'body' => [
-     		'type' => 'ckeditor',
-            'translatable' => true
-     	],
 
         'active' => [
             'title' => 'Active',
