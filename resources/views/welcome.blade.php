@@ -173,19 +173,9 @@
                     <span class="next"></span>
                 </div>
                 <div id="carousel">
-                    <img src="./assets/images/1.jpg"/>
-                    <img src="./assets/images/3.jpg"/>
-                    <img src="./assets/images/4.jpg"/>
-                    <img src="./assets/images/5.jpg"/>
-                    <img src="./assets/images/6.jpg"/>
-                    <img src="./assets/images/1.jpg"/>
-                    <img src="./assets/images/3.jpg"/>
-                    <img src="./assets/images/4.jpg"/>
-                    <img src="./assets/images/5.jpg"/>
-                    <img src="./assets/images/6.jpg"/>
-                    <img src="./assets/images/1.jpg"/>
-                    <img src="./assets/images/3.jpg"/>
-
+                @foreach($webdesign as $web)
+                    <img src="{{$web->image}}"/>
+                @endforeach
                 </div>
             </div>
         </section>
@@ -253,34 +243,14 @@
                         <li>Vânzări</li>
                         <li>Vânzări repetate &amp; <br> Fidelizare</li>
                     </ul>
+                    @foreach($strategies as $strategy)
                     <div class="item">
-                        <i></i>
-                        <h5>Promovare</h5>
-                        <p>Audit complex al sistemului<br> de Marketing și Vânzări.<br> Identitate vizuală. <br>Branding.
-                        </p>
+                        <i><img src="{{$strategy->icon}}"></i>
+                        <h5>{!!$strategy->name!!}</h5>
+                        {!!$strategy->body!!}
                     </div>
-                    <div class="item">
-                        <i></i>
-                        <h5>Promovare</h5>
-                        <p>Social Media Marketing<br> Google Marketing<br> Email Marketing</p>
-                    </div>
-                    <div class="item">
-                        <i></i>
-                        <h5>Individual</h5>
-                        <p>Landing page.<br> Site.<br> Blog.<br> Marketing kit.</p>
-                    </div>
-                    <div class="item">
-                        <i></i>
-                        <h5>Consultare</h5>
-                        <p>Scenarii de vânzări<br> CRM<br>Instrumente de control<br>Telefonie</p>
-                    </div>
-                    <div class="item">
-                        <i></i>
-                        <h5>Consultare</h5>
-                        <p>Email Marketing</p>
-                    </div>
+                    @endforeach
                 </div>
-
             </div><!-- /.container-fluid -->
         </section>
         <!-- /section.stategies -->

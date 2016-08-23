@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Subscribe;
+use Illuminate\Http\Request;
+use App\Subscriber;
 
 class SubscribeController extends Controller
 {
     protected $subscribe;
 
-    public function __construct(Subscribe $subscribe)
+    public function __construct(Subscriber $subscribe)
     {
         $this->subscribe = $subscribe;
     }
@@ -16,7 +17,7 @@ class SubscribeController extends Controller
     public function subscribe(Request $request) 
     {
         $subscribe = $this->subscribe->firstOrCreate(['email' => $request->get('email')]);
-        return;
+        return redirect()->back();
         if(! $this->checkSubscriber($request->get('email')))
         {
             $subscribe = $this->subscribe->create([
@@ -24,7 +25,7 @@ class SubscribeController extends Controller
                 'unsubscribe_token' => str_random(30)
             ]);
 
-            return 'you have subscribed';
+            return redirect()->back();
         }
     }
 

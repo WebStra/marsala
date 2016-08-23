@@ -35,12 +35,9 @@
             </div>
             <div class="col-md-4 pull-md-8 col-sm-3 col-sm-12">
                 <ul class="socials">
-                    <li><a href="#"><img src="/assets/images/ico/ico-twitter.png"></a></li>
-                    <li><a href="#"><img src="/assets/images/ico/ico-facebook.png"></a></li>
-                    <li><a href="#"><img src="/assets/images/ico/ico-google.png"></a></li>
-                    <li><a href="#"><img src="/assets/images/ico/ico-tumbler.png"></a></li>
-                    <li><a href="#"><img src="/assets/images/ico/ico-pinterest.png"></a></li>
-                    <li><a href="#"><img src="/assets/images/ico/ico-linkedin.png"></a></li>
+                @foreach($social as $socials)
+                    <li><a href="{{$socials->link}}" target="_blank"><img src="{{$socials->icon}}"></a></li>
+                    @endforeach
                 </ul>
                 <a href="#" class="logo2"></a>
             </div>
