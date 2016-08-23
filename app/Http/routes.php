@@ -20,9 +20,20 @@ Route::bind('unsub_token', function($token) {
         ->first();
 });
 
+Route::bind('static_page', function ($slug) {
+    return (new \Keyhunter\Administrator\Model\Page)
+        ->whereSlug($slug)
+        ->first();
+});
+
 Route::get('/', [
     'as' => 'home',
     'uses' => 'LandingController@index'
+]);
+
+Route::get('page/{static_page}.html', [
+    'as' => 'show_page',
+    'uses' => 'PagesController@show'
 ]);
 
 Route::post('subscribe', [ 

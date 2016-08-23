@@ -1,10 +1,11 @@
 <?php
 
+use App\Company;
 use Illuminate\Database\Eloquent\Builder;
 
 return [
-    'title'  => 'Marketings',
-    'model'  => \App\Marketing::class,
+    'title'  => 'Projects',
+    'model'  => \App\Project::class,
 
     /*
     |-------------------------------------------------------
@@ -19,6 +20,18 @@ return [
         'id',
 
         'name',
+
+        'icon' => [
+            'output' => function($row) {
+                return output_image($row, 'icon', ['style' => 'border: 1px dashed purple', 'width' => 150]);
+            }
+        ],
+
+        'company_id' => [
+            'output' => function($row){
+                return sprintf('Company: %s', $row->company->name);
+            }
+        ],
 
         'active' => [
             'visible' => function() {},
@@ -74,6 +87,24 @@ return [
     |-------------------------------------------------------
     */
     'filters' => [
+        'company_id' => [
+            'type' => 'select',
+            'options' => function(){
+                $items = [
+                    '' => '-- Any --'
+                ];
+
+                $collection = (new Company)->active()->get();
+
+                foreach ($collection as $item)
+                {
+                    $items[$item->id] = $item->name;
+                }
+
+                return $items;
+            }
+        ],
+
         'active' => [
             'type' => 'select',
             'options' => [
@@ -99,14 +130,40 @@ return [
     'edit_fields' => [
         'id'       => ['type' => 'key'],
 
-        'slug' => form_text(),
+        'company_id' => [
+            'type' => 'select',
+            'label' => 'Company',
+            'description' => 'Choose which company have a project',
+            'options' => function(){
+                $items = [];
 
-        'name' => form_text() + translatable(),
+                $collection = (new Company)->active()->get();
+
+                foreach ($collection as $item)
+                {
+                    $items[$item->id] = $item->name;
+                }
+
+                return $items;
+            }
+        ],
+
+        'name' => form_text(),
+
+        'image' => [
+            'label' => 'Project Image',
+            'description' => 'Upload project image preview',
+            'type' => 'image',
+            'location' => 'upload/projects'
+        ],
 
         'active' => [
             'title' => 'Active',
             'type' => 'select',
-            'options' => ['Keep disabled', 'Keep enabled']
+            'options' => [
+                1 => 'Keep enabled',
+                0 => 'Keep disabled'
+            ]
         ]
     ]
 ];

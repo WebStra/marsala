@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Libraries\ActivateableTrait;
 use Keyhunter\Administrator\Repository;
 
 class Company extends Repository
 {
+    use ActivateableTrait;
+
     /**
      * @var string
      */

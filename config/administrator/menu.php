@@ -29,42 +29,50 @@ return [
 //          'route' => 'admin_dashboard',
 //          ]
 //     ]
-    'Roles' => [
-        'page_header' => 'not working',
-//        'icon' => 'fa fa-circle-o',
-        'pages' => [
-            'admins' => [
-                'icon' => 'fa fa-user'
-            ],
-            'members' => [
-                'icon' => 'fa fa-users'
-            ]
-        ]
-    ],
+//    'Roles' => [
+//        'page_header' => 'not working',
+////        'icon' => 'fa fa-circle-o',
+//        'pages' => [
+//            'admins' => [
+//                'icon' => 'fa fa-user'
+//            ],
+//            'members' => [
+//                'icon' => 'fa fa-users'
+//            ]
+//        ]
+//    ],
     'Content' => [
         'page_header' => 'main content site',
 //        'icon' => 'fa fa-circle-o',
         'pages' => [
+            'pages' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+
             'webDesign' => [
-                'icon' => 'fa fa-file-text-o'
+                'icon' => 'fa fa-circle-o'
             ],
 
             'strategies' => [
-                'icon' => 'fa fa-circle-o',
-            ],
-
-            'companies' => [
                 'icon' => 'fa fa-circle-o'
             ],
 
             'social' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+
+            'books' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+
+            'metas' => [
                 'icon' => 'fa fa-circle-o'
             ]
         ]
     ],
 
     'Marketings' => [
-        'page_header' => 'main content site',
+        'page_header' => 'advanced content site',
 //        'icon' => 'fa fa-circle-o',
         'pages' => [
             'marketings' => [
@@ -73,7 +81,27 @@ return [
 
             'm_categories' => [
                 'icon' => 'fa fa-circle-o'
+            ],
+
+            'm_cat_companies' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+
+            'm_cat_companies_projects' => [
+                'icon' => 'fa fa-circle-o'
             ]
         ]
     ],
+
+    'Companies' => [
+        'pages' => [
+            'companies' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+
+            'projects' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+        ]
+    ]
 ];

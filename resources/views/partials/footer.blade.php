@@ -4,14 +4,18 @@
 
             <div class="col-md-8 push-md-4 col-sm-9 col-sm-12 content">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xxs-6">
-                        <h6>COMPANIA</h6>
-                        <ul>
-                            <li><a href="#">Despre noi</a></li>
-                            <li><a href="#">Contacte</a></li>
-                            <li><a href="#">Blog</a></li>
-                        </ul>
-                    </div>
+                    @if(count($pages))
+                        <div class="col-md-3 col-sm-3 col-xxs-6">
+                            <h6>COMPANIA</h6>
+                            <ul>
+                                @foreach($pages as $page)
+                                    <li>
+                                        <a href="{{ route('show_page', ['slug' => $page->slug]) }}">{{ $page->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="col-md-3 col-sm-4 col-xxs-6">
                         <h6>SERVICII</h6>
                         <ul>

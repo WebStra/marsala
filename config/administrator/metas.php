@@ -3,8 +3,8 @@
 use Illuminate\Database\Eloquent\Builder;
 
 return [
-    'title'  => 'Marketings',
-    'model'  => \App\Marketing::class,
+    'title'  => 'Meta',
+    'model'  => \App\Meta::class,
 
     /*
     |-------------------------------------------------------
@@ -18,20 +18,21 @@ return [
     'columns' => [
         'id',
 
-        'name',
+        'meta' => [
+            'title'     => 'Meta',
+            'elements'  => [
+                'key',
+                'value'
+            ]
+        ],
+
+        'type',
 
         'active' => [
             'visible' => function() {},
             'output' => function($row) {
                 return output_boolean($row);
             }
-        ],
-
-        'dates' => [
-            'elements' => [
-                'created_at',
-                'updated_at'
-            ]
         ]
     ],
 
@@ -99,14 +100,19 @@ return [
     'edit_fields' => [
         'id'       => ['type' => 'key'],
 
-        'slug' => form_text(),
+        'key' => form_text(),
 
-        'name' => form_text() + translatable(),
+        'type' => form_text('Group'),
+
+        'value' => form_text() + translatable(),
 
         'active' => [
             'title' => 'Active',
             'type' => 'select',
-            'options' => ['Keep disabled', 'Keep enabled']
+            'options' => [
+                1 => 'Keep enabled',
+                0 => 'Keep disabled',
+            ]
         ]
     ]
 ];

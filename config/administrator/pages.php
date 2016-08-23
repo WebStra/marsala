@@ -1,10 +1,10 @@
 <?php
 
-require_once base_path('vendor/keyhunter/administrator/src/helpers.php');
+//require_once base_path('vendor/keyhunter/administrator/src/helpers.php');
 //require_once base_path('packages/keyhunter/administrator/src/helpers.php');
 
 return [
-    'title'  => 'Pages 2',
+    'title'  => 'Pages',
 
     'description' => 'Silence is gold.',
 
@@ -27,7 +27,14 @@ return [
             'slug'
         ]),
 
-        'body',
+        'body' => [
+            'output' => function($row){
+                if(!empty($row->body))
+                    return sprintf('%s ...', substr($row->body, 0, 175));
+
+                return '';
+            }
+        ],
 
         'active' => column_element('Active', false, function($row)
         {
@@ -117,12 +124,12 @@ return [
 
         'title'    => form_text() + translatable(),
 
-//        'body'    => form_ckeditor() + translatable(),
-        'body'    => form_wysi_html5() + translatable(),
+        'body'    => form_ckeditor() + translatable(),
+//        'body'    => form_wysi_html5() + translatable(),
 
         'active' => filter_select('Active', [
-            0 => 'No',
-            1 => 'Yes'
+            1 => 'Keep enabled',
+            0 => 'Keep disabled'
         ]),
 
     ]

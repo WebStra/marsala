@@ -6,6 +6,7 @@ use App\Marketing;
 use App\Strategy;
 use App\Social;
 use App\WebDesign;
+use Keyhunter\Administrator\Model\Page;
 
 class LandingController extends Controller
 {
@@ -30,22 +31,31 @@ class LandingController extends Controller
     protected $marketings;
 
     /**
+     * @var Page
+     */
+    protected $page;
+
+
+    /**
      * LandingController constructor.
      * @param Strategy $strategy
      * @param Social $social
      * @param WebDesign $webdesign
      * @param Marketing $marketing
+     * @param Page $page
      */
     public function __construct(
         Strategy $strategy,
         Social $social,
         WebDesign $webdesign,
-        Marketing $marketing
+        Marketing $marketing,
+        Page $page
     ) {
         $this->strategy = $strategy;
         $this->social = $social;
         $this->webdesign = $webdesign;
         $this->marketings = $marketing;
+        $this->page = $page;
     }
 
     /**
@@ -59,8 +69,8 @@ class LandingController extends Controller
             'strategies' => $this->getPublicStrategies(),
             'social' => $this->getPublicSocials(),
             'webdesign' => $this->getPublicWebDesign(),
-            'marketings' => $this->getPublicMarketings()
-
+            'marketings' => $this->getPublicMarketings(),
+            'pages' => $this->getPublicPages()
         ]);
     }
 
@@ -101,6 +111,17 @@ class LandingController extends Controller
     {
         return $this->marketings
             ->active()
+            ->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublicPages()
+    {
+        return $this->page
+            ->select('*')
+            ->whereActive(1)
             ->get();
     }
 }

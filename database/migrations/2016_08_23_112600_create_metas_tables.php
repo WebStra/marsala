@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarketingsTable extends Migration
+class CreateMetasTables extends Migration
 {
     /**
      * Run the migrations.
@@ -12,21 +12,22 @@ class CreateMarketingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('marketings', function (Blueprint $table) {
+        Schema::create('meta', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
+            $table->string('key');
+            $table->string('type')->nullable();
             $table->boolean('active')->default(1)->index();
-            $table->timestamps();
         });
 
-        Schema::create('marketing_translations', function (Blueprint $table) {
+        Schema::create('meta_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('language_id')->unsigned();
-            $table->integer('marketing_id')->unsigned();
-            $table->string('name');
+            $table->integer('meta_id')->unsigned();
+
+            $table->string('value');
 
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('marketing_id')->references('id')->on('marketings')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('meta_id')->references('id')->on('meta')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -37,7 +38,7 @@ class CreateMarketingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('marketing_translations');
-        Schema::drop('marketings');
+        Schema::drop('meta_translations');
+        Schema::drop('meta');
     }
 }
