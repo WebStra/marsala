@@ -8,6 +8,7 @@ use App\Social;
 use App\WebDesign;
 use App\Offer;
 use App\Consultanta;
+use Keyhunter\Administrator\Model\Page;
 
 class LandingController extends Controller
 {
@@ -36,10 +37,15 @@ class LandingController extends Controller
      */
     protected $offer;
 
-     /**
+    /**
      * @var Offer
      */
     protected $consultanta;
+
+    /**
+     * @var Page;
+     */
+    protected $page;
 
     /**
      * LandingController constructor.
@@ -48,6 +54,8 @@ class LandingController extends Controller
      * @param WebDesign $webdesign
      * @param Marketing $marketing
      * @param Offer $offer
+     * @param Consultanta $consultanta
+     * @param Page $page
      */
     public function __construct(
         Strategy $strategy,
@@ -55,14 +63,17 @@ class LandingController extends Controller
         WebDesign $webdesign,
         Marketing $marketing,
         Offer $offer,
-        Consultanta $consultanta
-    ) {
+        Consultanta $consultanta,
+        Page $page
+    )
+    {
         $this->strategy = $strategy;
         $this->social = $social;
         $this->webdesign = $webdesign;
         $this->marketings = $marketing;
         $this->offer = $offer;
         $this->consultanta = $consultanta;
+        $this->page = $page;
     }
 
     /**
@@ -78,7 +89,8 @@ class LandingController extends Controller
             'webdesign' => $this->getPublicWebDesign(),
             'marketings' => $this->getPublicMarketings(),
             'offer' => $this->getPublicOffer(),
-            'consultanta' => $this->getPublicConsultanta()
+            'consultanta' => $this->getPublicConsultanta(),
+            'pages' => $this->getPublicPages()
         ]);
     }
 
@@ -121,6 +133,7 @@ class LandingController extends Controller
             ->active()
             ->get();
     }
+
     /**
      * @return mixed
      */
@@ -130,6 +143,7 @@ class LandingController extends Controller
             ->active()
             ->get();
     }
+
     /**
      * @return mixed
      */
@@ -137,6 +151,17 @@ class LandingController extends Controller
     {
         return $this->consultanta
             ->active()
+            ->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublicPages()
+    {
+        return $this->page
+            ->select('*')
+            ->whereActive(1)
             ->get();
     }
 }

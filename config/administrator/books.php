@@ -3,8 +3,8 @@
 use Illuminate\Database\Eloquent\Builder;
 
 return [
-    'title'  => 'Marketings',
-    'model'  => \App\Marketing::class,
+    'title'  => 'Books',
+    'model'  => \App\Book::class,
 
     /*
     |-------------------------------------------------------
@@ -18,6 +18,8 @@ return [
     'columns' => [
         'id',
 
+        'path',
+
         'name',
 
         'active' => [
@@ -27,12 +29,6 @@ return [
             }
         ],
 
-        'dates' => [
-            'elements' => [
-                'created_at',
-                'updated_at'
-            ]
-        ]
     ],
 
     /*
@@ -99,14 +95,20 @@ return [
     'edit_fields' => [
         'id'       => ['type' => 'key'],
 
-        'slug' => form_text(),
+        'path' => [
+            'type' => 'file',
+            'location' => 'uploads/books/'
+        ],
 
-        'name' => form_text() + translatable(),
+        'name' => form_text(),
 
         'active' => [
             'title' => 'Active',
             'type' => 'select',
-            'options' => ['Keep disabled', 'Keep enabled']
+            'options' => [
+                1 => 'Keep enabled',
+                0 => 'Keep disabled',
+            ]
         ]
     ]
 ];
