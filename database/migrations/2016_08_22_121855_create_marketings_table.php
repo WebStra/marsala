@@ -22,6 +22,7 @@ class CreateMarketingsTable extends Migration
             $table->increments('id');
             $table->integer('language_id')->unsigned();
             $table->integer('marketing_id')->unsigned();
+            $table->string('name');
 
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('marketing_id')->references('id')->on('marketings')->onDelete('cascade')->onUpdate('cascade');

@@ -50,15 +50,29 @@ return [
             ],
 
             'strategies' => [
-                'icon' => 'fa fa-file-text-o',
+                'icon' => 'fa fa-circle-o',
             ],
 
+            'companies' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+
+            'social' => [
+                'icon' => 'fa fa-circle-o'
+            ]
+        ]
+    ],
+
+    'Marketings' => [
+        'page_header' => 'main content site',
+//        'icon' => 'fa fa-circle-o',
+        'pages' => [
             'marketings' => [
-                'icon' => 'fa fa-file-text-o'
+                'icon' => 'fa fa-circle-o'
             ],
 
-             'social' => [
-                'icon' => 'fa fa-file-text-o'
+            'm_categories' => [
+                'icon' => 'fa fa-circle-o'
             ]
         ]
     ],

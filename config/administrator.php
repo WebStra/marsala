@@ -40,8 +40,8 @@ return [
      * @type string
      */
     'home_page'       => 'admin/pages',
-    'show_user_panel' => 'false',
-    'show_search_bar' => 'false', //todo: repair this stuff
+    'show_user_panel' => false,
+    'show_search_bar' => false, //todo: repair this stuff
     /**
      * Default locale
      */

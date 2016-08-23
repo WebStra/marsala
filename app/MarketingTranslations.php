@@ -2,13 +2,10 @@
 
 namespace App;
 
-use App\Libraries\WithoutTimestamps;
 use Illuminate\Database\Eloquent\Model;
 
 class MarketingTranslations extends Model
 {
-//    use WithoutTimestamps;
-
     /**
      * @var string
      */
@@ -17,6 +14,7 @@ class MarketingTranslations extends Model
     /**
      * @var array
      */
+//    protected $fi = ['name'];
     protected $fillable = ['name'];
 
     public $timestamps = false;
