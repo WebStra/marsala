@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Keyhunter\Translatable\Translatable;
 
 class MarketingTranslations extends Model
 {

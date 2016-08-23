@@ -8,6 +8,7 @@ use App\Libraries\ActivateableTrait;
 class WebDesign extends Model
 {
 	use ActivateableTrait;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -15,6 +16,9 @@ class WebDesign extends Model
      */
     protected $table = 'web_designs';
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'id', 'image', 'title', 'active'
     ];

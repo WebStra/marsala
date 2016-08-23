@@ -9,8 +9,14 @@ class Social extends Model
 {
 	use ActivateableTrait;
 
-	protected $table = 'socials';
+    /**
+     * @var string
+     */
+    protected $table = 'socials';
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'id', 'link', 'name', 'icon', 'active'
     ];

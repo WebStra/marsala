@@ -4,13 +4,22 @@ namespace App;
 
 use Keyhunter\Administrator\Repository as Model;
 
-class StrategyTranslation extends Model implements Translatable
+class StrategyTranslation extends Model
 {
-	protected $table = 'strategy_translations';
+    /**
+     * @var string
+     */
+    protected $table = 'strategy_translations';
 
-	public $timestamps = false;
+    /**
+     * @var bool
+     */
+    public $timestamps = false;
 
-	  protected $fillable = [
+    /**
+     * @var array
+     */
+    protected $fillable = [
         'id', 'strategy_id', 'language_id', 'name', 'body'
     ];
 }

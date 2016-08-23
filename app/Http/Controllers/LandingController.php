@@ -2,23 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Marketing;
 use App\Strategy;
 use App\Social;
 use App\WebDesign;
 
 class LandingController extends Controller
 {
+    /**
+     * @var Strategy
+     */
     protected $strategy;
 
+    /**
+     * @var Social
+     */
     protected $social;
 
-    protected $webDesign;
+    /**
+     * @var WebDesign
+     */
+    protected $webdesign;
 
-    public function __construct(Strategy $strategy, Social $social, WebDesign $webdesign)
-    {
+    /**
+     * @var Marketing
+     */
+    protected $marketings;
+
+    /**
+     * LandingController constructor.
+     * @param Strategy $strategy
+     * @param Social $social
+     * @param WebDesign $webdesign
+     * @param Marketing $marketing
+     */
+    public function __construct(
+        Strategy $strategy,
+        Social $social,
+        WebDesign $webdesign,
+        Marketing $marketing
+    ) {
         $this->strategy = $strategy;
         $this->social = $social;
         $this->webdesign = $webdesign;
+        $this->marketings = $marketing;
     }
 
     /**
@@ -31,28 +58,49 @@ class LandingController extends Controller
         return view('welcome', [
             'strategies' => $this->getPublicStrategies(),
             'social' => $this->getPublicSocials(),
-            'webdesign' => $this->getPublicWebDesign()
+            'webdesign' => $this->getPublicWebDesign(),
+            'marketings' => $this->getPublicMarketings()
 
-                    ]);
+        ]);
     }
 
+    /**
+     * @return mixed
+     */
     public function getPublicStrategies()
     {
         return $this->strategy
-                ->active()
-                ->get();
+            ->active()
+            ->get();
     }
 
-     public function getPublicSocials()
+    /**
+     * @return mixed
+     */
+    public function getPublicSocials()
     {
         return $this->social
-                ->active()
-                ->get();
+            ->active()
+            ->get();
     }
-     public function getPublicWebDesign()
+
+    /**
+     * @return mixed
+     */
+    public function getPublicWebDesign()
     {
         return $this->webdesign
-                ->active()
-                ->get();
+            ->active()
+            ->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublicMarketings()
+    {
+        return $this->marketings
+            ->active()
+            ->get();
     }
 }
