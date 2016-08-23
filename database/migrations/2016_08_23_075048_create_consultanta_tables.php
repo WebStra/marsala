@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOffersTable extends Migration
+class CreateConsultantaTables extends Migration
 {
     /**
      * Run the migrations.
@@ -12,21 +12,25 @@ class CreateOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('offers', function (Blueprint $table) {
+          Schema::create('consultanta', function(Blueprint $table)
+        {
             $table->increments('id');
-            $table->string('image', 255);
+            $table->string('icon', 225);
             $table->boolean('active')->default(1)->index();
             $table->timestamps();
         });
 
-        Schema::create('offer_translations', function (Blueprint $table) {
+        Schema::create('consultanta_translations', function(Blueprint $table)
+        {
             $table->increments('id');
-            $table->integer('language_id')->unsigned();
-            $table->integer('offer_id')->unsigned();
+
+            $table->unsignedInteger('consultanta_id');
+            $table->unsignedInteger('language_id');
             $table->string('title', 255);
-            $table->string('body', 255);
+            $table->unique(['consultanta_id', 'language_id']);
+
+            $table->foreign('consultanta_id')->references('id')->on('consultanta')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('offer_id')->references('id')->on('offers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -37,7 +41,7 @@ class CreateOffersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('offer_translations');
-        Schema::drop('offers');
+        Schema::drop('consultanta');
+        Schema::drop('consultanta_translations');
     }
 }

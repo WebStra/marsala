@@ -3,8 +3,6 @@
 namespace App;
 
 use Keyhunter\Administrator\Repository as Model;
-use App\Libraries\ActivateableTrait;
-use Keyhunter\Translatable\Translatable;
 
 class OfferTranslations extends Model
 {
@@ -16,7 +14,7 @@ class OfferTranslations extends Model
     protected $table = 'offer_translations';
 
     protected $fillable = [
-        'id', 'title', 'body'
+        'id', 'offer_id', 'language_id', 'title', 'body'
     ];
 
     public $timestamps = false;

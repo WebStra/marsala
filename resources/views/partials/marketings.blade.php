@@ -28,10 +28,12 @@
                         <ul class="group">
                             @foreach($marketings as $marketing)
                                 @foreach($marketing->categories as $category)
-                                    <li class="item group_{{ $marketing->slug }}" data-filter="{{ $category->present()->renderFilter() }}">
-                                        <img src="{{ $category->icon }}" alt="img1">
-                                        <span>{{ strtoupper($category->name) }}</span>
-                                    </li>
+                                    @if(count($category->m_cat_companies))
+                                        <li class="item group_{{ $marketing->slug }}" data-filter="{{ $category->present()->renderFilter() }}">
+                                            <img src="{{ $category->icon }}" alt="img1">
+                                            <span>{{ strtoupper($category->name) }}</span>
+                                        </li>
+                                    @endif
                                 @endforeach
                             @endforeach
                         </ul>
@@ -52,9 +54,11 @@
             @foreach($marketings as $marketing)
                 @foreach($marketing->categories as $category)
                     @foreach($category->m_cat_companies as $m_cat_company)
-                        <div class="item {{ $category->name }}" data-filter=".company-{{ $m_cat_company->company->name }}">
-                            <span><img src="{{ $m_cat_company->company->logo }}" alt=""></span>
-                        </div>
+                        @if(count($m_cat_company->m_cat_companies_projects))
+                            <div class="item {{ $category->name }}" data-filter=".company-{{ $m_cat_company->company->name }}">
+                                <span><img src="{{ $m_cat_company->company->logo }}" alt=""></span>
+                            </div>
+                        @endif
                     @endforeach
                 @endforeach
             @endforeach

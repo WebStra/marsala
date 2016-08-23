@@ -2084,4 +2084,50 @@ $(document).ready(function () {
         );
 
 
+         $('.downloadBook').on('click', function(event){
+        event.preventDefault();
+        var form = $(this).parents('form').serialize();
+        var response = $(this).parents('form').find('.response');
+        var form_wrap = $(this).parents('form');
+        var send_books_wrap = form_wrap.parent();
+        var btn = $(this);
+
+        btn.attr("disabled", true);
+        $.ajax({
+            url : '/downloadBookForm',
+            method : 'POST',
+            dataType : 'json',
+            data : form,
+            success : function(data){
+                if(data.error){
+                    response.addClass('error');
+                    setTimeout(function(){
+                        response.removeClass('error');
+                        if(btn.attr("disabled")){
+                                btn.attr("disabled", false);
+                            }  
+                    } , 3000);
+                    response.text(data.error);
+                }else{
+                    if(btn.attr("disabled")){
+                        btn.attr("disabled", false);
+                    }
+
+                    response.removeClass('success');
+                    form_wrap.remove();
+                    send_books_wrap.append(
+                        "<div>"
+                            + "<span><img src=\"/assets/images/ico/ico-check.png\">&nbsp;</span>" 
+                                + "Multumim! Cartile au fost expediate pe email!" 
+                            + "</span>"
+                        +"</div>"
+                    );
+                }
+
+            }
+        });
+        });
+
 });// END: $(document).ready(function(){});
+
+

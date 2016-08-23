@@ -6,6 +6,8 @@ use App\Marketing;
 use App\Strategy;
 use App\Social;
 use App\WebDesign;
+use App\Offer;
+use App\Consultanta;
 use Keyhunter\Administrator\Model\Page;
 
 class LandingController extends Controller
@@ -31,10 +33,19 @@ class LandingController extends Controller
     protected $marketings;
 
     /**
-     * @var Page
+     * @var Offer
+     */
+    protected $offer;
+
+    /**
+     * @var Offer
+     */
+    protected $consultanta;
+
+    /**
+     * @var Page;
      */
     protected $page;
-
 
     /**
      * LandingController constructor.
@@ -42,6 +53,8 @@ class LandingController extends Controller
      * @param Social $social
      * @param WebDesign $webdesign
      * @param Marketing $marketing
+     * @param Offer $offer
+     * @param Consultanta $consultanta
      * @param Page $page
      */
     public function __construct(
@@ -49,12 +62,17 @@ class LandingController extends Controller
         Social $social,
         WebDesign $webdesign,
         Marketing $marketing,
+        Offer $offer,
+        Consultanta $consultanta,
         Page $page
-    ) {
+    )
+    {
         $this->strategy = $strategy;
         $this->social = $social;
         $this->webdesign = $webdesign;
         $this->marketings = $marketing;
+        $this->offer = $offer;
+        $this->consultanta = $consultanta;
         $this->page = $page;
     }
 
@@ -70,6 +88,8 @@ class LandingController extends Controller
             'social' => $this->getPublicSocials(),
             'webdesign' => $this->getPublicWebDesign(),
             'marketings' => $this->getPublicMarketings(),
+            'offer' => $this->getPublicOffer(),
+            'consultanta' => $this->getPublicConsultanta(),
             'pages' => $this->getPublicPages()
         ]);
     }
@@ -110,6 +130,26 @@ class LandingController extends Controller
     public function getPublicMarketings()
     {
         return $this->marketings
+            ->active()
+            ->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublicOffer()
+    {
+        return $this->offer
+            ->active()
+            ->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublicConsultanta()
+    {
+        return $this->consultanta
             ->active()
             ->get();
     }

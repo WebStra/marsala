@@ -45,3 +45,8 @@ Route::get('unsubscribe/{unsub_token}', [
 	'as' => 'unsubscribe', 
 	'uses' => 'SubscribeController@unsubscribe'
 ]);
+
+Route::post('downloadBookForm', [ 
+	'as' => 'downloadBookForm', 
+	'uses' => 'SubscribeController@downloadBookForm'
+]);
