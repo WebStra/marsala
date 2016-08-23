@@ -9,6 +9,44 @@ body {
   color: #252023;
   background-color: #f9f9f9; }
 
+.wrap-form form {
+  position: relative;
+}
+i.response {
+display: none;
+margin: 15px auto 0;
+}
+
+i.success {
+position: absolute;
+bottom: -50px;
+left: 0;
+text-align: center;
+font-size: 14px!important;
+font-weight: 400;
+color: #fff;
+border: 1px solid green;
+background-color: #5dbb2f;
+display: block;
+max-width:350px;
+padding: 5px;
+}
+
+i.error {
+position: absolute;
+bottom: -50px;
+left: 0;
+text-align: center;
+font-size: 14px!important;
+font-weight: 400;
+color: white;
+border: 1px solid red;
+background-color: rgba(240, 14, 14, 0.7);
+display: block;
+padding: 5px;
+max-width:350px;
+}
+
 .container-fluid {
   max-width: 1230px;
   padding-left: 15px;
@@ -152,7 +190,8 @@ header {
       border: none;
       height: 40px;
       color: #fff;
-      float: left; }
+      float: left;
+      outline: none; }
       .form-subscribe .form-group input[type='email']::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 0.25); }
       .form-subscribe .form-group input[type='email']::-moz-placeholder {
@@ -163,7 +202,8 @@ header {
         color: rgba(255, 255, 255, 0.25); }
     .form-subscribe .form-group [type='submit'] {
       float: right;
-      height: 40px; }
+      height: 40px;
+      outline: none; }
   @media (max-width: 479px) {
     .form-subscribe input[type='email'] {
       width: 160px; }
@@ -255,6 +295,7 @@ section.consulting {
         background-image: url("../images/ico/ico-target-c.png"); }
       section.consulting ul li:hover:nth-of-type(6) i {
         background-image: url("../images/ico/ico-head-c.png"); }
+     
       section.consulting ul li:nth-of-type(1) i {
         background-image: url("../images/ico/ico-user.png"); }
       section.consulting ul li:nth-of-type(2) i {
@@ -267,6 +308,7 @@ section.consulting {
         background-image: url("../images/ico/ico-target.png"); }
       section.consulting ul li:nth-of-type(6) i {
         background-image: url("../images/ico/ico-head.png"); }
+        
       section.consulting ul li i {
         display: block;
         height: 88px;
@@ -523,10 +565,12 @@ section.formular {
     border: 1px solid #dddddf;
     border-radius: 22px;
     background-color: #efeff1;
-    padding: 0 18px; }
+    padding: 0 18px; 
+    outline: none;}
   section.formular .wrap-form button[type='submit'] {
     margin-top: 30px;
-    font-weight: 400; }
+    font-weight: 400; 
+    outline: none;}
 
 footer {
   padding-top: 80px; }

@@ -7,31 +7,15 @@
                 <div class="row">
                     <div class="col-xl-10 col-xs-12 offset-xl-1">
                         <div class="row">
+                        @foreach($offer as $ofert)
                             <div class="item col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-8 offset-sm-2 ">
                                 <h3>
-                                    <img src="/assets/images/ico/ico-stats.png" alt="img">
-                                    Promovare digitală &amp; statistici și analitică
+                                    <img src="{{$ofert->image}}" alt="img">
+                                    {!!$ofert->title!!}
                                 </h3>
-                                Obtine mai multi clienti prin
-                                Facebok Marketing,
-                                Google Marketing și
-                                Email Marketing
+                                {!!$ofert->body!!}
                             </div><!-- /.item -->
-                            <div class="item col-lg-4 offset-md-0 col-md-5 col-sm-8 offset-sm-2 ">
-                                <h3>
-                                    <img src="/assets/images/ico/ico-blogging.png" alt="img">
-                                    Web design &amp; identitate vizuală
-                                </h3>
-                                Inpacheteaza afacerea ta și ia conversii mai maria site-ului, lp-ului, mkit-ului tău
-                            </div><!-- /.item -->
-                            <div class="item col-lg-4 offset-lg-0 col-md-5 offset-md-3 col-sm-8 offset-sm-2">
-                                <h3>
-                                    <img src="/assets/images/ico/ico-money-talk.png" alt="img">
-                                    Consultanță marketng în vînzări
-                                </h3>
-                                Sisteamatizeaza departamentul tau de marketing &amp; vinzari prin instrumente
-                                performante care aduc vinzari
-                            </div><!-- /.item -->
+                        @endforeach
                         </div>
                     </div>
                 </div>
@@ -59,8 +43,6 @@
                                 <a href="/images/ico-user.jpg" class="btn btn-second" download>Descarcă gratuit</a>
                             </div>
                         </div>
-
-
                     </div>
                     <div class="col-exl-8 col-xs-12">
                         <div class="wrap-monitor">
@@ -186,42 +168,14 @@
                 <h2 class="title">Consultanță marketing în vînzări</h2>
                 <h4 class="subtitle">Cum vom sistematiza, crește și controla Departamentul de Marketing și Vânzări</h4>
                 <ul>
+                @foreach($consultanta as $consult)
                     <li>
                         <div class="item">
                             <span class="wrap-ico"><i></i></span>
-                            <p>CRM</p>
+                            <p>{!!$consult->title!!}</p>
                         </div>
                     </li>
-                    <li>
-                        <div class="item">
-                            <span class="wrap-ico"><i></i></span>
-                            <p>TELEFONIE</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <span class="wrap-ico"><i></i></span>
-                            <p>SCENARII DE VÎNZĂRI &amp; CARTEA DE VÎNZĂRI</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <span class="wrap-ico"><i></i></span>
-                            <p>RAPOARTE ȘI ANALIZĂ</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <span class="wrap-ico"><i></i></span>
-                            <p>KPI VÎNZĂRI &amp; MARKETING</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <span class="wrap-ico"><i></i></span>
-                            <p>AUDIT VÎNZĂRI &amp; MARKETING</p>
-                        </div>
-                    </li>
+                @endforeach
                 </ul>
                 <h3>5 scenarii de vînzări pentru afacerea ta</h3>
                 <a href="/images/ico-user.jpg" class="btn btn-second" download>Descarcă gratuit</a>
@@ -269,26 +223,28 @@
                     <div class="col-md-4 col-xs-12">
                         <div class="wrap-form">
                             <h4>Încearcă acum</h4>
-                            <form action="">
+                            <form action="" method="post">
                                 <div class="form-group">
                                     <label for="name">Name:</label>
                                     <div class="wrap-input">
-                                        <input type="text" id="name">
-                                        <span class="valid active"></span>
-                                        <span class="error"></span>
+                                        <input type="text" name="name" id="name">
+                                       <!--   <span class="valid active"></span> 
+                                       <span class="error "></span> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
                                     <div class="wrap-input">
-                                        <input type="email" id="email">
-                                        <span class="valid active"></span>
-                                        <span class="error"></span>
+                                        <input type="email" name="email" id="email">
+                                        <!-- <span class="valid"></span>
+                                        <span class="error active"></span> -->
                                     </div>
                                 </div>
+                                {{csrf_field()}}
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-second">Descarcă</button>
+                                    <button type="submit" class="downloadBook btn btn-second">Descarcă</button>
                                 </div>
+                                <i class="response"></i>
                             </form>
                         </div>
                     </div>
@@ -300,4 +256,5 @@
         <!-- /section.formular -->
 
     </div> <!-- /.main-container -->
+
 @endsection

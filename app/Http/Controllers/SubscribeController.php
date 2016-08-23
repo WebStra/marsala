@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Subscriber;
+use App\DownloadBook;
+use Validator;
+use Illuminate\Mail\Message;
 
 class SubscribeController extends Controller
 {
@@ -43,5 +46,35 @@ class SubscribeController extends Controller
         $token->save();
         
         return redirect()->route('home')->withMessage('unsub..');
+    }
+
+    public function downloadBookForm(Request $request) {
+       
+        $rules=array(
+          'name' => 'required',
+          'email' => 'required|email'  
+        );
+
+        $validation=Validator::make($request->all(), $rules);
+
+        if($validation->fails()){
+            echo json_encode(array('error'=>'Forma a fost indeplinita cu errori!'));
+        }
+        else {
+            $book = DownloadBook::firstOrCreate([
+                'name' => $request->get("name"),
+                'email' => $request->get("email")
+            ]);
+
+            \Mail::send('partials.EmailBook',
+                    ['book' => $book, 'books' => ['book1' => 'path', 'book2' => 'path', 'book3' => 'path']], 
+                    function(Message $message) use ($book)
+            {
+                $message->to($book->email, 
+                        sprintf('%s', $book->name));
+            });
+
+            echo json_encode(array('success'=>'Fisierele au fost trimise pe email!'));
+        }  
     }
 }

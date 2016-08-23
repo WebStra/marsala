@@ -53,11 +53,18 @@ return [
                 'icon' => 'fa fa-circle-o',
             ],
 
+             'offers' => [
+                'icon' => 'fa fa-circle-o',
+            ],
+
             'companies' => [
                 'icon' => 'fa fa-circle-o'
             ],
 
             'social' => [
+                'icon' => 'fa fa-circle-o'
+            ],
+             'consultanta' => [
                 'icon' => 'fa fa-circle-o'
             ]
         ]
