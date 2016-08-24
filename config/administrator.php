@@ -4,7 +4,7 @@ use Illuminate\Contracts\Auth\Guard;
 
 return [
     'prefix'          => 'admin',
-    'title'           => 'Admin <b>panel</b>',
+    'title'           => 'Admin panel',
     'title_mini'      => '<b>AP</b>',
     'auth_identity'   => 'email',
     'auth_credential' => 'password',
@@ -39,7 +39,7 @@ return [
      *
      * @type string
      */
-    'home_page'       => 'admin/pages',
+    'home_page'       => 'admin/subscribers',
     'show_user_panel' => false,
     'show_search_bar' => false, //todo: repair this stuff
     /**

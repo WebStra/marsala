@@ -17,7 +17,7 @@
                         </div>
                     @endif
                     <div class="col-md-3 col-sm-4 col-xxs-6">
-                        <h6>SERVICII</h6>
+                        <h6>{!!$meta->getMeta('services_title')!!}</h6>
                         <ul>
                             <li><a href="#">LP</a></li>
                             <li><a href="#">Site</a></li>
@@ -30,10 +30,11 @@
                         </ul>
                     </div>
                     <div class="col-md-6 col-sm-5  col-xxs-12">
-                        <h6>E-BOOK GRATUIT</h6>
+                        <h6>{!!$meta->getMeta('e_book_title')!!}</h6>
                         <p>Instrument de calcul și analiză a rezultatelor activității Social Media Marketing.<br>
-                            Ghid de resurse web pentru un design mai bun 5 scenarii de vânzări</p>
-                        <a href="/images/ico-user.jpg" class="btn btn-third" download>Descarcă gratuit</a>
+                            Ghid de resurse web pentru un design mai bun 5 scenarii de vânzări
+                           </p>
+                        <a href="/images/ico-user.jpg" class="btn btn-third" download>{!!$meta->getMeta('button_download')!!}</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +47,7 @@
                 <a href="#" class="logo2"></a>
             </div>
         </div>
-        <p class="foot">ALL RIGHTS RESERVED BY MARSALA &copy; 2016</p>
+        <p class="foot">{!!$meta->getMeta('reserved')!!}</p>
     </footer>
 </div>
 <!-- / .footer-container -->

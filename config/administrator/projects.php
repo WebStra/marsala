@@ -21,9 +21,9 @@ return [
 
         'name',
 
-        'icon' => [
+        'image' => [
             'output' => function($row) {
-                return output_image($row, 'icon', ['style' => 'border: 1px dashed purple', 'width' => 150]);
+                return output_image($row, 'image', ['style' => 'border: 1px dashed purple', 'width' => 150]);
             }
         ],
 

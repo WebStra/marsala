@@ -26,12 +26,10 @@
         @if(count($marketings))
             @include('partials.marketings')
         @endif
-
         <section class="slider">
             <div class="container-fluid">
-                <h2 class="title">Web design &amp; identitate vizuală</h2>
-                <h4 class="subtitle">Cum vom împacheta afacerea ta pentru ca tu să ai conversii și vânzări mai
-                    mari?</h4>
+                <h2 class="title">{!!$meta->getMeta('web_title')!!}</h2>
+                <h4 class="subtitle">{!!$meta->getMeta('web_title')!!}</h4>
             </div>
             <div class="wrap-carousel">
                 <div class="monitor">
@@ -49,8 +47,8 @@
 
         <section class="consulting">
             <div class="container-fluid">
-                <h2 class="title">Consultanță marketing în vînzări</h2>
-                <h4 class="subtitle">Cum vom sistematiza, crește și controla Departamentul de Marketing și Vânzări</h4>
+                <h2 class="title">{{$meta->getMeta('consultanta_title')}}</h2>
+                <h4 class="subtitle">{{$meta->getMeta('consultanta_text')}}</h4>
                 <ul>
                 @foreach($consultanta as $consult)
                     <li>
@@ -61,8 +59,8 @@
                     </li>
                 @endforeach
                 </ul>
-                <h3>5 scenarii de vînzări pentru afacerea ta</h3>
-                <a href="/images/ico-user.jpg" class="btn btn-second" download>Descarcă gratuit</a>
+                <h3>{{$meta->getMeta('consultanta_text_bottom')}}</h3>
+                <a href="/images/ico-user.jpg" class="btn btn-second" download>{{$meta->getMeta('button_download')}}</a>
             </div><!-- /.container-fluid -->
         </section>
         <!-- / section.consulting -->
@@ -70,23 +68,24 @@
 
         <section class="strategies">
             <div class="container-fluid">
-                <h2 class="title">5 strategii de top</h2>
-                <h4 class="subtitle">Aplicăm 5 strategii de top pentru ca forma ta să se diferențieze de concurență și
-                    să crești vânzările</h4>
+                <h2 class="title">{{$meta->getMeta('strategy_title')}}</h2>
+                <h4 class="subtitle">{{$meta->getMeta('strategy_text')}}</h4>
                 <div class="wrap-elements">
                     <ul class="center-block">
-                        <li>Poziționare și strategie de dezvoltare</li>
-                        <li>Promovare și atragere clienți sporite în vânzări</li>
-                        <li>Prezență &amp; Conversie online</li>
-                        <li>Vânzări</li>
-                        <li>Vânzări repetate &amp; <br> Fidelizare</li>
+                    
+                        <li>{{$meta->getMeta('str_1')}}</li>
+                        <li>{{$meta->getMeta('str_2')}}</li>
+                        <li>{{$meta->getMeta('str_3')}}</li>
+                        <li>{{$meta->getMeta('str_4')}}</li>
+                        <li>{!!$meta->getMeta('str_5')!!}</li>
+                        
                     </ul>
                     @foreach($strategies as $strategy)
-                        <div class="item">
-                            <i><img src="{{$strategy->icon}}"></i>
-                            <h5>{!!$strategy->name!!}</h5>
-                            {!!$strategy->body!!}
-                        </div>
+                    <div class="item">
+                        <i><img src="{{$strategy->icon}}"></i>
+                        <h5>{!!$strategy->name!!}</h5>
+                        {!!$strategy->body!!}
+                    </div>
                     @endforeach
                 </div>
             </div><!-- /.container-fluid -->
@@ -97,19 +96,19 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-7 offset-md-1 col-xs-12">
-                        <h2 class="title">3e-book Gratuit</h2>
+                        <h2 class="title">{{$meta->getMeta('book_title')}}</h2>
                         <ul class="items">
-                            <li><i></i>promovare digitală &amp; statistici și analitică</li>
-                            <li><i></i>web design &amp; identitate vizuală</li>
-                            <li><i></i>consultanță marketng în vînzări</li>
+                            <li><i></i>{{$meta->getMeta('book_nr_1')}}</li>
+                            <li><i></i>{{$meta->getMeta('book_nr_2')}}</li>
+                            <li><i></i>{{$meta->getMeta('book_nr_3')}}</li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-xs-12">
                         <div class="wrap-form">
-                            <h4>Încearcă acum</h4>
+                            <h4>{{$meta->getMeta('tincearca_title')}}</h4>
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="name">Name:</label>
+                                    <label for="name">{{$meta->getMeta('name')}}</label>
                                     <div class="wrap-input">
                                         <input type="text" name="name" id="name">
                                        <!--   <span class="valid active"></span> 
@@ -117,7 +116,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email:</label>
+                                    <label for="email">{{$meta->getMeta('email')}}</label>
                                     <div class="wrap-input">
                                         <input type="email" name="email" id="email">
                                         <!-- <span class="valid"></span>
@@ -126,15 +125,13 @@
                                 </div>
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    <button type="submit" class="downloadBook btn btn-second">Descarcă</button>
+                                    <button type="submit" class="downloadBook btn btn-second">{{$meta->getMeta('download')}}</button>
                                 </div>
                                 <i class="response"></i>
                             </form>
                         </div>
                     </div>
                 </div>
-
-
             </div><!-- /.container-fluid -->
         </section>
         <!-- /section.formular -->

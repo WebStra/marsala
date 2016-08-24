@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-exl-4 col-xs-12">
-                <h2 class="title">Promovare digitală statistici și analitică</h2>
-                <h4 class="subtitle">Ce intrumente folosim pentru mai mulți clienți în afacerea ta?</h4>
+                <h2 class="title">{{$meta->getMeta('promovare_title')}}</h2>
+                <h4 class="subtitle">{{$meta->getMeta('promovare_text')}}</h4>
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-xsm-6 col-xs-12 col-exl-12">
@@ -14,12 +14,10 @@
                         </ul>
                     </div>
                     <div class="col-xsm-6 col-xs-12 col-exl-12">
-                        <h4>Instrumentul de calcul și analiză a rezultatelor activitații Social Media
-                            Marketing</h4>
-                        <a href="/images/ico-user.jpg" class="btn btn-second" download>Descarcă gratuit</a>
+                        <h4>{{$meta->getMeta('promovare_bottom_text')}}</h4>
+                        <a href="/images/ico-user.jpg" class="btn btn-second" download>{{$meta->getMeta('button_download')}}</a>
                     </div>
                 </div>
-
 
             </div>
             <div class="col-exl-8 col-xs-12">
