@@ -11,9 +11,42 @@
 |
 */
 
-use App\Test;
+use App\Subscriber;
 
-Route::get('/', function () {
-	// dd(Test::all());
-    return view('welcome', ['test' => Test::first()]);
+Route::bind('unsub_token', function($token) {
+	return (new Subscriber)
+        ->where('unsubscribe_token', $token)
+        ->active()
+        ->first();
 });
+
+Route::bind('static_page', function ($slug) {
+    return (new \Keyhunter\Administrator\Model\Page)
+        ->whereSlug($slug)
+        ->first();
+});
+
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'LandingController@index'
+]);
+
+Route::get('page/{static_page}.html', [
+    'as' => 'show_page',
+    'uses' => 'PagesController@show'
+]);
+
+Route::post('subscribe', [ 
+	'as' => 'subscribe', 
+	'uses' => 'SubscribeController@subscribe'
+]);
+
+Route::get('unsubscribe/{unsub_token}', [ 
+	'as' => 'unsubscribe', 
+	'uses' => 'SubscribeController@unsubscribe'
+]);
+
+Route::post('downloadBookForm', [ 
+	'as' => 'downloadBookForm', 
+	'uses' => 'SubscribeController@downloadBookForm'
+]);

@@ -5,13 +5,12 @@
              alt="{{ \Auth::user()->name }}"><span
                 class="hidden-xs">{{ \Auth::user()->name }}</span> <span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-        <li class="divider"></li>
-        <li><a href="#">One more separated link</a></li>
+        <li>
+            <a href="{{ route('home') }}">
+                <i class="fa fa-arrow-left"></i> {{ trans('Go to site') }}
+            </a>
+        </li>
+
         <li>
             <a href="{{ url('admin/logout') }}">
                 <i class="glyphicon glyphicon-log-out"></i> {{ trans('Logout') }}

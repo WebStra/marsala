@@ -16,6 +16,13 @@
                 {{--@include('administrator::partials.badges')--}}
 
                 <li>
+                    <a class="dropdown-toggle active" href="{{ route('home') }}">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Go to Site
+                    </a>
+                </li>
+
+                <li>
                     <a class="dropdown-toggle active" href="{{ route('admin_model_index', ['page' => 'languages']) }}">
                         <i class="fa fa-envelope"></i>
                         Languages
@@ -24,8 +31,11 @@
 
                 @include('administrator::partials.settings')
 
-                @include('administrator::partials.user')
-                {{--todo: implement header pages ..--}}
+                <li>
+                    <a href="{{ url('admin/logout') }}">
+                        <i class="glyphicon glyphicon-log-out"></i> {{ trans('Logout') }}
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
